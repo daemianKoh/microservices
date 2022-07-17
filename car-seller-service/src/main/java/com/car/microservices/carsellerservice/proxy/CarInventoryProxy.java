@@ -1,6 +1,7 @@
 package com.car.microservices.carsellerservice.proxy;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,4 +18,7 @@ public interface CarInventoryProxy {
 	
 	@PostMapping("/car-inventory/addNewCar")
 	public Response addNewCar(@RequestBody Car addCar);
+	
+	@DeleteMapping("/car-inventory/removeCar")
+	public Response removeCar(@RequestParam Integer carId);
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -109,11 +110,6 @@ public class CarInventoryController {
 			response.setStatusCode(1);
 		}
 		else {
-			System.out.println(addCar.getBrand());
-			System.out.println(addCar.getModel());
-			System.out.println(addCar.getYearMake());
-			System.out.println(addCar.getPrice());
-			
 			if(StringUtils.isEmpty(addCar.getBrand()) || StringUtils.isEmpty(addCar.getModel()) || ObjectUtils.isEmpty(addCar.getYearMake()) 
 					|| ObjectUtils.isEmpty(addCar.getPrice())) {
 				
@@ -127,6 +123,35 @@ public class CarInventoryController {
 				response.setO(repository.findAll());
 				response.setErrorMsg("Car id " + newCar.getId() + " is added into the list");
 			}
+		}
+		response.setEnvironment(port);
+		return response;
+	}
+	
+	@DeleteMapping("/removeCar")
+	public Response removeCar(@RequestParam Integer carId){
+		
+		String port = environment.getProperty("local.server.port");
+		Response response = new Response();
+		
+		if(ObjectUtils.isEmpty(carId)) {
+			response.setErrorMsg("Car Id cannot be empty");
+			response.setStatusCode(1);
+		}
+		else {
+			
+			Optional<Car> optionalCar = repository.findById(carId);
+			
+			if(!optionalCar.isPresent()) {
+				response.setErrorMsg("No such car in the listing");
+				response.setStatusCode(1);
+			}
+			else {
+				repository.delete(optionalCar.get());
+				response.setO(repository.findAll());
+				response.setErrorMsg("Car id " + carId + " is remove from the list");
+			}
+			
 		}
 		response.setEnvironment(port);
 		return response;
