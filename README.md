@@ -2,7 +2,7 @@
 This is a simple microservices consits of car buyer, car seller and car inventory services
 
 Short Description:
-- Car buyer service can call Car inventory service to buy the car
+- Car buyer service can call Car inventory service to get all the car by status or buy the car
 - Car seller service can call Car inventory service to add or remove car from the list
 - car inventory service handle db call
 - Refer to architectural diagram.jpg.
