@@ -1,17 +1,13 @@
 package com.car.microservices.carinventoryservice.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.car.microservices.carinventoryservice.constants.Constants;
-import com.car.microservices.carinventoryservice.dto.Car;
 import com.car.microservices.carinventoryservice.dto.Response;
 import com.car.microservices.carinventoryservice.repository.CarInventoryRepository;
 
