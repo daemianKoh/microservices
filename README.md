@@ -5,6 +5,7 @@ Short Description:
 - Car buyer service can call Car inventory service to buy the car
 - Car seller service can call Car inventory service to add or remove car from the list
 - car inventory service handle db call
+- Refer to architectural diagram.jpg.
 
 Port use:
 - Car buyer services: 8000
