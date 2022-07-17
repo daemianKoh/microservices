@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.car.microservices.carsellerservice.dto.Response;
 
-@FeignClient(name="car-inventory", url="localhost:8080/car-inventory")
+@FeignClient(name="car-inventory")
 public interface CarInventoryProxy {
 
-	@GetMapping("/getListOfCars")
+	@GetMapping("/car-inventory/getListOfCars")
 	public Response getListOfCars(@RequestParam String status);
 }
