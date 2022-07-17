@@ -6,18 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import org.springframework.lang.Nullable;
+import javax.persistence.SequenceGenerator;
 
 @Entity
+@SequenceGenerator(name="car_id_seq", initialValue=5)
 public class Car {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="car_id_seq")
+	private Integer id;
 	private String brand;
-	private String modal;
-	private int yearMake;
+	private String model;
+	private Integer yearMake;
 	private BigDecimal price;
 	private String status;
 	
@@ -25,21 +25,21 @@ public class Car {
 		
 	}
 
-	public Car(Long id, String brand, String modal, int yearMake, BigDecimal price, String status) {
+	public Car(Integer id, String brand, String model, Integer yearMake, BigDecimal price, String status) {
 		super();
 		this.id = id;
 		this.brand = brand;
-		this.modal = modal;
+		this.model = model;
 		this.yearMake = yearMake;
 		this.price = price;
 		this.status = status;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -51,19 +51,19 @@ public class Car {
 		this.brand = brand;
 	}
 
-	public String getModal() {
-		return modal;
+	public String getModel() {
+		return model;
 	}
 
-	public void setModal(String modal) {
-		this.modal = modal;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
-	public int getYearMake() {
+	public Integer getYearMake() {
 		return yearMake;
 	}
 
-	public void setYearMake(int yearMake) {
+	public void setYearMake(Integer yearMake) {
 		this.yearMake = yearMake;
 	}
 

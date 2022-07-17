@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class Car {
 	
-	private Long id;
+	private int id;
 	private String brand;
-	private String modal;
+	private String model;
 	private int yearMake;
 	private BigDecimal price;
 	private String status;
@@ -15,21 +15,21 @@ public class Car {
 		
 	}
 
-	public Car(Long id, String brand, String modal, int yearMake, BigDecimal price, String status) {
+	public Car(int id, String brand, String model, int yearMake, BigDecimal price, String status) {
 		super();
 		this.id = id;
 		this.brand = brand;
-		this.modal = modal;
+		this.model = model;
 		this.yearMake = yearMake;
 		this.price = price;
 		this.status = status;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -41,12 +41,12 @@ public class Car {
 		this.brand = brand;
 	}
 
-	public String getModal() {
-		return modal;
+	public String getModel() {
+		return model;
 	}
 
-	public void setModal(String modal) {
-		this.modal = modal;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
 	public int getYearMake() {
